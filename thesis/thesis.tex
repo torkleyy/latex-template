@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define a boolean switch for one-sided or two-sided layout
+\newif\ifoneside
+\onesidetrue % Set to \onesidefalse for two-sided layout
+
+\ifoneside
+    % One-sided layout
+    \documentclass[12pt,listof=totoc,oneside]{scrreprt}
+\else
+    % Two-sided layout
+    \documentclass[12pt,listof=totoc,twoside,headsepline]{scrreprt}
+\fi
+
+% Conditional for German-specific settings
+\newif\ifgerman
+\germanfalse % Set to \germanfalse if the thesis is not in German
+
+\input{components/packages.tex}
+
+\addbibresource{library.bib}
+
+\input{components/styles.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\input{addendum/glossary.tex}
+\input{components/title.tex}
+\input{components/empty}
+\input{addendum/abstract}
+
+\tableofcontents
+\clearpage	
+\setcounter{page}{1}
+
+\input{content.tex}
+\input{addendum/appendix.tex}
+
+\printbibliography
+
+\listoffigures
+\listoftables
+\printglossaries 
+\end{document}

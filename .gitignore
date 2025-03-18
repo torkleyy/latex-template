@@ -1,0 +1,6 @@
+thesis.*
+!thesis.tex
+*.log
+out
+*.aux
+_minted-thesis

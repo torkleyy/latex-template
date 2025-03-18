@@ -1,0 +1,80 @@
+
+% Language and Encoding
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+
+
+\ifgerman
+    \usepackage[ngerman]{babel}
+    \usepackage[ngerman]{translator}
+    % Abb. instead of Abbildung
+    \usepackage{caption3}
+    \addto\captionsngerman{
+        \renewcommand{\figurename}{Abb.}
+        \renewcommand{\tablename}{Tab.}
+    }
+\else
+    \usepackage[english]{babel}
+\fi
+
+% Page Layout
+\usepackage{geometry}
+\ifoneside
+    \geometry{left=30mm,right=25mm,
+        bottom=20mm,top=15mm,bindingoffset=2mm,
+        includehead,includefoot}
+\else
+    \geometry{left=25mm,right=25mm,
+        bottom=20mm,top=15mm,bindingoffset=2mm,
+        includehead,includefoot}
+\fi
+\setlength{\headheight}{10mm}
+
+% Math and Symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{upgreek}
+\usepackage{pxfonts}
+
+% Graphics and Figures
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{float}
+\usepackage{wrapfig}
+
+% Tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+% Hyperlinks
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=false}
+
+% Fix for deprecated \float@addtolist interface
+\usepackage{scrhack}
+
+% Bibliography
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+
+% Glossary
+\usepackage[
+    nonumberlist, % No page numbers
+    acronym,      % Create an acronym list
+    toc           % Add entries to the table of contents
+]{glossaries}
+\makeglossaries
+
+% Page Headers and Footers
+\usepackage[automark,pagestyleset=standard,markcase=used]{scrlayer-scrpage}
+
+% TikZ for State Automata
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows.meta, positioning}
+\tikzset{
+    node distance=3cm,
+    on grid,
+    auto,
+    every state/.style={draw=black, font=\small, fill=white},
+    every initial by arrow/.style={font=\small, text=black, thick, -stealth},
+    every edge/.append style={font=\small}
+}
