@@ -21,8 +21,7 @@ RUN apt-get update && apt-get -y upgrade \
     texlive-lang-german texlive-lang-english
 
 # Ensure pygmentize is installed
-RUN apt install python3-pip && python3 -m pip install --upgrade pip \
-    && pip install Pygments
+RUN apt-get -y install --no-install-recommends python3-pygments
 
 # latexindent modules
 RUN apt-get install --no-install-recommends -y curl
